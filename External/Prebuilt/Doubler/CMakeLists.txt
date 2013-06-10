@@ -1,0 +1,9 @@
+PROJECT(DOUBLER)
+
+ADD_LIBRARY(Doubler
+            STATIC
+            IMPORTED 
+            GLOBAL
+            )
+
+SET_TARGET_PROPERTIES (Doubler PROPERTIES IMPORTED_LOCATION ${DOUBLER_SOURCE_DIR}/lib/libDoubler.a)
