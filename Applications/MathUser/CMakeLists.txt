@@ -1,4 +1,4 @@
-PROJECT (MathUser)
+PROJECT (MATHUSER)
 
 SET ( SOURCE_FILES
     Source/main.cpp)
