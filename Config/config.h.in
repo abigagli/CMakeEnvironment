@@ -1,0 +1,5 @@
+#cmakedefine THIS_IS_ON
+#cmakedefine THIS_IS_OFF
+
+#define Test1Text "@TEST1@"
+#define Test2Text "${TEST2}"

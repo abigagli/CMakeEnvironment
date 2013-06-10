@@ -1,0 +1,29 @@
+SET( GOOGLEMOCK_ROOT $ENV{GMOCKROOT} )
+
+PROJECT(GMOCK)
+
+SET (BUILD_INCLUDE_DIRS 
+    ${GOOGLEMOCK_ROOT}
+    ${GOOGLEMOCK_ROOT}/include 
+    ${GOOGLEMOCK_ROOT}/gtest 
+    ${GOOGLEMOCK_ROOT}/gtest/include )
+
+INCLUDE_DIRECTORIES(${BUILD_INCLUDE_DIRS})
+
+
+SET( SOURCE_FILES
+    ${GOOGLEMOCK_ROOT}/src/gmock-all.cc
+    ${GOOGLEMOCK_ROOT}/gtest/src/gtest-all.cc
+)
+
+
+# Add as a static library target.
+ADD_LIBRARY( GMock
+    STATIC
+    ${SOURCE_FILES}
+)
+
+SET (GMOCK_PUBLIC_INCLUDE_DIRS 
+    ${GOOGLEMOCK_ROOT}/include 
+    ${GOOGLEMOCK_ROOT}/gtest/include 
+    PARENT_SCOPE)
