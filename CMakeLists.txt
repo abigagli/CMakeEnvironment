@@ -48,8 +48,10 @@ CMAKE_DEPENDENT_OPTION(INTEL_SSE_2 "Enable SSE2 instructions" OFF "INTEL_SSE" OF
 # ###############################################
 # Add the external libraries, internal libraries,
 # applications and tools to the project.
-INCLUDE( External/CMakeLists.txt )
-INCLUDE( Libraries/CMakeLists.txt )
+#INCLUDE( External/CMakeLists.txt )
+#INCLUDE( Libraries/CMakeLists.txt )
+ADD_SUBDIRECTORY( External )
+ADD_SUBDIRECTORY( Libraries )
 ADD_SUBDIRECTORY( Applications )
 ADD_SUBDIRECTORY( Tools )
 

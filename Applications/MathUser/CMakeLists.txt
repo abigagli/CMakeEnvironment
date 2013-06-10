@@ -1,0 +1,7 @@
+PROJECT (MathUser)
+
+SET ( SOURCE_FILES
+    Source/main.cpp)
+
+ADD_EXECUTABLE (MathUser ${SOURCE_FILES})
+TARGET_LINK_LIBRARIES (MathUser Math)

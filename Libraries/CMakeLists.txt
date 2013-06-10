@@ -1,2 +1,2 @@
-ADD_SUBDIRECTORY(Libraries/Math)
+ADD_SUBDIRECTORY(Math)
 

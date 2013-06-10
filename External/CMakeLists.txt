@@ -1,1 +1,1 @@
-ADD_SUBDIRECTORY(External/CMake/GMock)
+ADD_SUBDIRECTORY(CMake/GMock)
