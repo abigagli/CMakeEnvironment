@@ -28,7 +28,7 @@ IF (BUILD_UNIT_TESTS)
 
     ADD_EXECUTABLE(
         _TestMath
-        Tests/Main.cpp
+        Tests/main.cpp
         )
 
     TARGET_LINK_LIBRARIES (
