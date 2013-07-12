@@ -1,18 +1,19 @@
 PROJECT(MATH)
 
-SET( BUILD_INCLUDE_DIRS
-    ${MATH_SOURCE_DIR}/Include
-)
+SET ( PRIVATE_INCLUDE_DIRS
+    Include/Private
+    $ENV{BOOSTROOT}
+    )
 
 
-SET( INCLUDE_FILES
-    Include/Math/Math.hpp
-    Include/Math/Vector3.hpp
-)
+SET ( PUBLIC_INCLUDE_DIRS
+    Include/Public
+    )
 
-SET( SOURCE_FILES
-    Source/Vector3.cpp
-)
+
+SET ( SOURCE_FILES
+    Source/vector3.cpp
+    )
 
 
 ADD_LIBRARY( Math
@@ -21,7 +22,7 @@ ADD_LIBRARY( Math
     ${SOURCE_FILES}
 )
 
-TARGET_INCLUDE_DIRECTORIES (Math PUBLIC ${BUILD_INCLUDE_DIRS})
+TARGET_INCLUDE_DIRECTORIES (Math PUBLIC ${PUBLIC_INCLUDE_DIRS} PRIVATE ${PRIVATE_INCLUDE_DIRS})
 TARGET_COMPILE_DEFINITIONS (Math PRIVATE BUILDING_MATH INTERFACE USING_MATH)
 
 IF (BUILD_UNIT_TESTS)
@@ -30,6 +31,9 @@ IF (BUILD_UNIT_TESTS)
         _TestMath
         Tests/main.cpp
         )
+
+    #Allow tests to access private headers of its dependents
+    TARGET_INCLUDE_DIRECTORIES (_TestMath PRIVATE $<TARGET_PROPERTY:Math,INCLUDE_DIRECTORIES>)
 
     TARGET_LINK_LIBRARIES (
         _TestMath

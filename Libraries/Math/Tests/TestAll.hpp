@@ -1,3 +1,3 @@
-#include "Math/Vector3.hpp"
+#include "Math/vector3.hpp"
 
 #include "TestConstruction.hpp"
