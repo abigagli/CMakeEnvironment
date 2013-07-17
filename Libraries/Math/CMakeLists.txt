@@ -11,11 +11,12 @@ SET ( PUBLIC_INCLUDE_DIRS
     Include
     )
 
-SET ( INCLUDE_FILES
-    Include/Math/vector3.hpp
-    Include/Math/math.hpp
-    Source/detail/math_internal.h
-    )
+FILE ( GLOB_RECURSE
+       INCLUDE_FILES
+       Include/**
+       Source/detail/*.h
+       Source/detail/*.hpp
+      )
 
 SET ( SOURCE_FILES
     Source/vector3.cpp
