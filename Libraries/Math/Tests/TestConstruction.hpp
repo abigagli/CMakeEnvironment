@@ -1,3 +1,8 @@
+#include "Math/vector3.hpp"
+#include "detail/math_internal.h"
+
+#include "gmock/gmock.h"
+
 TEST (Math, Vector3f)
 {
     Math::Vector3f  test0( 0.0f, 0.0f, 0.0f );

@@ -3,11 +3,12 @@
 CMAKE_MINIMUM_REQUIRED( VERSION 2.8.11 )
 
 
-
 # ###############################################
 # Start the project.
 
 PROJECT( CMakeEnvironment )
+
+set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 IF (${CMAKE_SYSTEM_NAME} MATCHES "SunOS")
     SET (SOLARIS true)

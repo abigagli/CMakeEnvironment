@@ -1,15 +1,19 @@
 PROJECT(MATH)
 
 SET ( PRIVATE_INCLUDE_DIRS
-    Include/Private
+    Source
     $ENV{BOOSTROOT}
     )
 
-
 SET ( PUBLIC_INCLUDE_DIRS
-    Include/Public
+    Include
     )
 
+SET ( INCLUDE_FILES
+    Include/Math/vector3.hpp
+    Include/Math/math.hpp
+    Source/detail/math_internal.h
+    )
 
 SET ( SOURCE_FILES
     Source/vector3.cpp
@@ -22,6 +26,8 @@ ADD_LIBRARY( Math
     ${SOURCE_FILES}
 )
 
+#PRIVATE and PUBLIC items will populate the INCLUDE_DIRECTORIES property of <target>.  
+#PUBLIC and INTERFACE items will populate the INTERFACE_INCLUDE_DIRECTORIES property of <target>.
 TARGET_INCLUDE_DIRECTORIES (Math PUBLIC ${PUBLIC_INCLUDE_DIRS} PRIVATE ${PRIVATE_INCLUDE_DIRS})
 TARGET_COMPILE_DEFINITIONS (Math PRIVATE BUILDING_MATH INTERFACE USING_MATH)
 
