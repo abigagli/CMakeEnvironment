@@ -1,2 +1,3 @@
 ADD_SUBDIRECTORY(BuiltHere/GMock)
-ADD_SUBDIRECTORY(Prebuilt/Doubler)
+ADD_SUBDIRECTORY(BuiltHere/MySQL++)
+ADD_SUBDIRECTORY(Prebuilt/MySQLClient)

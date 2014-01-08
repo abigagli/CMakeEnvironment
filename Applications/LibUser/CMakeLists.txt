@@ -1,11 +1,25 @@
 PROJECT (LIBUSER)
 
+SET(Boost_USE_STATIC_LIBS ON)
+FIND_PACKAGE(Boost 1.46 COMPONENTS serialization REQUIRED)
+
+
+FILE ( GLOB_RECURSE
+       INCLUDE_FILES
+       Source/*.h
+       Source/*.hpp
+      )
+
 SET ( SOURCE_FILES
     Source/main.cpp)
 
-ADD_EXECUTABLE (LibUser ${SOURCE_FILES})
+ADD_EXECUTABLE (LibUser ${SOURCE_FILES}
+                        ${INCLUDE_FILES})
 
-#Can't get any better solution that do this to gain visibility to imported target's includes...
-INCLUDE_DIRECTORIES (${DOUBLER_SOURCE_DIR}/include)
+TARGET_LINK_LIBRARIES (LibUser Math MYSQLPP MYSQLCLIENT)
 
-TARGET_LINK_LIBRARIES (LibUser Math Doubler)
+TARGET_INCLUDE_DIRECTORIES (LibUser PRIVATE ${Boost_INCLUDE_DIR})
+
+INSTALL (TARGETS LibUser
+        RUNTIME DESTINATION bin COMPONENT Runtime
+        LIBRARY DESTINATION lib COMPONENT Runtime)

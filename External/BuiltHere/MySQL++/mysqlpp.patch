@@ -1,0 +1,31 @@
+--- lib/refcounted.h	2013-09-28 20:01:59.368940724 +0200
++++ lib/refcounted.h	2013-09-28 20:04:10.916319893 +0200
+@@ -29,6 +29,7 @@
+ #define MYSQLPP_REFCOUNTED_H
+ 
+ #include <memory>
++#include <cstddef>
+ 
+ namespace mysqlpp {
+ 
+--- test/uds.cpp	2013-09-28 20:20:07.556901123 +0200
++++ test/uds.cpp	2013-09-28 20:10:55.226047064 +0200
+@@ -30,6 +30,7 @@
+ #include <iostream>
+ #include <sstream>
+ #include <string>
++#include <cstring>
+ 
+ #if !defined(MYSQLPP_PLATFORM_WINDOWS)
+ #include <unistd.h>
+--- examples/load_jpeg.cpp	2013-09-30 12:11:29.000000000 +0200
++++ examples/load_jpeg.cpp	2013-09-30 12:17:00.000000000 +0200
+@@ -85,7 +85,7 @@
+ 						img.data = mysqlpp::sql_blob(img_buffer, img_size);
+ 					}
+ 					else {
+-						cerr << '"' << img_file <<
++						cerr << '"' << img_name <<
+ 								"\" isn't a JPEG!" << endl;
+ 					}
+ 					delete[] img_buffer;
