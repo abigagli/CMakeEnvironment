@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Math/Math.hpp"
+#include "Math/math.hpp"
 
 
 namespace Math
@@ -14,7 +14,7 @@ namespace Math
         float           X() const                   {return mX;}
         float           Y() const                   {return mY;}
         float           Z() const                   {return mZ;}
-        
+
     private:
         float           mX;
         float           mY;
