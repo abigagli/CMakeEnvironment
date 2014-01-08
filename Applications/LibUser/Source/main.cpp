@@ -8,7 +8,7 @@
 
 int main(int argc, char *argv[])
 {
-    int x;
+    float x;
     Math::Vector3f {x, 11, 13.1};
 
     return 0;
