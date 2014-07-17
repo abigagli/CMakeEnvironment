@@ -98,10 +98,10 @@ ENDIF()
 # ###############################################
 # Add the external libraries, internal libraries,
 # applications and tools to the project.
-ADD_SUBDIRECTORY( External )
-ADD_SUBDIRECTORY( Libraries )
-ADD_SUBDIRECTORY( Applications )
-ADD_SUBDIRECTORY( Tools )
+ADD_SUBDIRECTORY( SRC/External )
+ADD_SUBDIRECTORY( SRC/Libraries )
+ADD_SUBDIRECTORY( SRC/Applications )
+ADD_SUBDIRECTORY( TOOLS )
 
 
 
