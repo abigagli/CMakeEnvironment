@@ -48,7 +48,7 @@ IF (BUILD_UNIT_TESTS)
     TARGET_LINK_LIBRARIES (
         _TestMath
         Math
-        GMock
+        gmock
         )
 
     ADD_TEST (NAME
