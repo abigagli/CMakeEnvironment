@@ -69,7 +69,8 @@ CMAKE_DEPENDENT_OPTION(INTEL_SSE_2 "Enable SSE2 instructions" OFF "INTEL_SSE" OF
 # 1) we set it _without_ FORCE, and then it won't be cached because CMAKE_xxx_FLAGS is a built-in variable, and hence it's present
 #    in the cache even before the first time our project is configured
 # 2) we set it _with_ FORCE, but then every time we configure, we'll keep appending
-# So the only solution is to detect when this is the VERY FIRST CONFIGURATION and only in that case FORCEly set the cache variable:
+# More generally, many of the CMake variables exist in the cache before CMakeLists.txt is processed so that the only
+# solution is to detect when this is the VERY FIRST CONFIGURATION and only in that case FORCEly set the cache variable:
 
 IF (NOT CONFIGURED_ONCE)
     SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${MY_CXX_FLAGS}" CACHE STRING "Flags used by the compiler during all build types" FORCE)
@@ -78,6 +79,7 @@ IF (NOT CONFIGURED_ONCE)
     SET (CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} ${MY_MODULE_LINKER_FLAGS}" CACHE STRING "Flags used by the linker during the creation of modules" FORCE)
 ENDIF()
 
+# NOTE: No need to FORCE this, as CONFIGURED_ONCE is not present in the cache
 SET (CONFIGURED_ONCE TRUE CACHE INTERNAL "A flag showing that CMake has configured at least once")
 #
 #
