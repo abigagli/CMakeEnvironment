@@ -16,8 +16,6 @@ ELSEIF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     SET (LINUX true)
 ENDIF()
 
-SET (CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/INSTALL")
-
 #SET (PREBUILT_LIBS_FOLDER ${CMAKE_HOME_DIRECTORY}/External/prebuilt_libs)
 #LINK_DIRECTORIES (${PREBUILT_LIBS_FOLDER})
 # ###############################################
