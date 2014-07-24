@@ -8,6 +8,8 @@ CMAKE_MINIMUM_REQUIRED( VERSION 2.8.11 )
 
 PROJECT( CMakeEnvironment )
 
+LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
+
 set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 IF (${CMAKE_SYSTEM_NAME} MATCHES "SunOS")
@@ -56,7 +58,9 @@ OPTION (BUILD_UNIT_TESTS "Build unit tests" ON)
 
 IF (BUILD_UNIT_TESTS)
     ENABLE_TESTING()
+    INCLUDE(gmock)
 ENDIF()
+
 
 INCLUDE(CMakeDependentOption)
 OPTION(INTEL_SSE "Enable SSE on Intel CPU ON" ON)
@@ -92,12 +96,13 @@ SET (CONFIGURED_ONCE TRUE CACHE INTERNAL "A flag showing that CMake has configur
 # enable @rpath in the install name for any shared library being built
 SET(CMAKE_MACOSX_RPATH TRUE)
 
-# use, i.e. don't skip the full RPATH for the build tree
+# use, i.e. don't skip the full RPATH for the build tree, this allows running
+# executables from the build tree without having to mess with DYLD_LIBRARY_PATH etc..
 SET(CMAKE_SKIP_BUILD_RPATH  FALSE)
 #
 # when building, don't use the install RPATH already
 # (but later on when installing)
-SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE) 
+SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 #
 # add the automatically determined parts of the RPATH
 # which point to directories outside the build tree to the install RPATH
