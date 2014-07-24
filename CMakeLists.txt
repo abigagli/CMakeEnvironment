@@ -119,6 +119,9 @@ IF("${isSystemDir}" STREQUAL "-1")
     ENDIF()
 ENDIF()
 
+#Make sure everything is able to access generatd config files...
+INCLUDE_DIRECTORIES (${CMAKE_BINARY_DIR}/config)
+
 # ###############################################
 # Add the external libraries, internal libraries,
 # applications and tools to the project.

@@ -1,4 +1,5 @@
 #include "Math/vector3.hpp"
+#include "config_generated.h"
 
 using namespace Math;
 

@@ -1,4 +1,5 @@
 #include "Math/vector3.hpp"
+#include "config_generated.h"
 
 #define MYSQLPP_MYSQL_HEADERS_BURIED
 #include <mysql++/mysql++.h>
