@@ -18,7 +18,7 @@ ELSEIF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     SET (LINUX true)
 ENDIF()
 
-#SET (PREBUILT_LIBS_FOLDER ${CMAKE_HOME_DIRECTORY}/External/prebuilt_libs)
+#SET (PREBUILT_LIBS_FOLDER ${CMAKE_HOME_DIRECTORY}/3rdParty/prebuilt_libs)
 #LINK_DIRECTORIES (${PREBUILT_LIBS_FOLDER})
 # ###############################################
 # Enable C++11 on Darwin
@@ -122,10 +122,10 @@ ENDIF()
 # ###############################################
 # Add the external libraries, internal libraries,
 # applications and tools to the project.
-ADD_SUBDIRECTORY( SRC/External )
-ADD_SUBDIRECTORY( SRC/Libraries )
-ADD_SUBDIRECTORY( SRC/Applications )
-ADD_SUBDIRECTORY( TOOLS )
+ADD_SUBDIRECTORY( 3rdParty )
+ADD_SUBDIRECTORY( src/Libraries )
+ADD_SUBDIRECTORY( src/Applications )
+ADD_SUBDIRECTORY( tools )
 
 
 
@@ -135,14 +135,14 @@ SET (THIS_IS_ON ON)
 SET (THIS_IS_OFF OFF)
 SET (TEST1 CameFromTest1)
 SET (TEST2 CameFromTest2)
-CONFIGURE_FILE(Config/config.h.in Config/config_generated.h)
+CONFIGURE_FILE(config/config.h.in config/config_generated.h)
 
 
 ########################################
 #Install commands
 
 
-#INSTALL (FILES Config/commands.json Config/log.ini Config/iface2commands.json DESTINATION bin/config COMPONENT Runtime)
+#INSTALL (FILES config/commands.json config/log.ini config/iface2commands.json DESTINATION bin/config COMPONENT Runtime)
 #INSTALL (DIRECTORY scripts DESTINATION bin USE_SOURCE_PERMISSIONS COMPONENT Runtime)
 #
 #
