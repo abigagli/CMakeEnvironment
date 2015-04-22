@@ -119,6 +119,12 @@ IF("${isSystemDir}" STREQUAL "-1")
     ENDIF()
 ENDIF()
 
+
+#Configure post_install_script to resolve variables, as cmake variables are directly exported to
+#install scripts (http://stackoverflow.com/questions/20792802/why-variables-are-not-accessed-inside-script-in-cmake)
+SET (post_install_script ${PROJECT_BINARY_DIR}/custom_install_scripts/symlink_libraries.cmake)
+CONFIGURE_FILE(Symlink_libraries.cmake.in ${post_install_script} @ONLY)
+
 #Make sure everything is able to access generatd config files...
 INCLUDE_DIRECTORIES (${CMAKE_BINARY_DIR}/config)
 
